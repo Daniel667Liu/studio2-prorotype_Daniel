@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/prototype/New Scene.unity
+- path: Assets/prototype_Daniel/New Scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
