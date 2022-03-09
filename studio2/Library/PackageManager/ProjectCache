@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637824356730000000
+      ticks: 637824372020000000
     m_Hash: 236420418
   m_LockFileStatus:
     m_FilePath: /Users/mdh/Documents/GitHub/studio2-prorotype_Daniel/studio2/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637824356730000000
+      ticks: 637824372020000000
     m_Hash: 1498693941
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
