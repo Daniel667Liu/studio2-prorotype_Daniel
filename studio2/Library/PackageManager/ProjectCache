@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637824365550000000
-    m_Hash: 236420418
+      ticks: 637825418300000000
+    m_Hash: 2159432182
   m_LockFileStatus:
     m_FilePath: /Users/honeyboy/Development/studio_2/proof_repo/studio2/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637824365550000000
-    m_Hash: 1498693941
+      ticks: 637825418300000000
+    m_Hash: 3219187224
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -552,6 +552,80 @@ m_PackageAssets:
         url: https://github.com/Unity-Technologies/Graphics.git
         revision: 31a193989d1e4e18ec3dced0f45168f8d2552a9a
         path: 
+    - packageId: com.unity.terrain-tools@3.0.2-preview.3
+      testable: 0
+      isDirectDependency: 1
+      version: 3.0.2-preview.3
+      source: 1
+      resolvedPath: /Users/honeyboy/Development/studio_2/proof_repo/studio2/Library/PackageCache/com.unity.terrain-tools@3.0.2-preview.3
+      assetPath: Packages/com.unity.terrain-tools
+      name: com.unity.terrain-tools
+      displayName: Terrain Tools
+      author:
+        name: 
+        email: 
+        url: 
+      category: 
+      type: 
+      description: The Terrain Tools package adds additonal terrain sculpting brushes
+        and tools to your project to help create stunning terrain assets and ease
+        the workflows.
+      status: 4
+      errors: []
+      versions:
+        all:
+        - 1.1.2-preview
+        - 1.1.4-preview
+        - 2.0.0-preview
+        - 2.0.1-preview
+        - 2.0.2-preview
+        - 3.0.0-preview
+        - 3.0.1-preview
+        - 3.0.2-preview.2
+        - 3.0.2-preview.3
+        - 4.0.0-pre.2
+        - 4.0.0
+        - 4.0.3
+        compatible:
+        - 1.1.2-preview
+        - 1.1.4-preview
+        - 2.0.0-preview
+        - 2.0.1-preview
+        - 2.0.2-preview
+        - 3.0.0-preview
+        - 3.0.1-preview
+        - 3.0.2-preview.2
+        - 3.0.2-preview.3
+        verified: 
+      dependencies: []
+      resolvedDependencies: []
+      keywords:
+      - Terrain
+      - Brush
+      - Toolbox
+      - Mask
+      - Filter
+      - Noise
+      registry:
+        id: main
+        name: 
+        url: https://packages.unity.com
+        scopes: []
+        isDefault: 1
+        capabilities: 7
+      hasRegistry: 1
+      hideInEditor: 1
+      entitlements:
+        isAllowed: 1
+      isAssetStorePackage: 0
+      datePublishedTicks: 637405549500000000
+      documentationUrl: 
+      hasRepository: 1
+      repository:
+        type: git
+        url: git+https://github.com/Unity-Technologies/TerrainTools.git
+        revision: 76c6077597a43827f933b02c7db9ca819c74588e
+        path: 
     - packageId: com.unity.test-framework@1.1.29
       testable: 0
       isDirectDependency: 1
@@ -753,6 +827,7 @@ m_PackageAssets:
         - 2.1.6
         - 2.2.0-preview.1
         - 2.2.0-preview.2
+        - 2.2.0-preview.3
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -772,11 +847,13 @@ m_PackageAssets:
         - 3.0.6
         - 3.2.0-pre.1
         - 3.2.0-pre.2
+        - 3.2.0-pre.3
         - 4.0.0-pre.1
         compatible:
         - 3.0.6
         - 3.2.0-pre.1
         - 3.2.0-pre.2
+        - 3.2.0-pre.3
         verified: 3.0.6
       dependencies:
       - name: com.unity.ugui
@@ -906,6 +983,7 @@ m_PackageAssets:
         - 1.7.0-pre.1
         - 1.7.0-pre.2
         - 1.7.0
+        - 1.7.1
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -933,6 +1011,7 @@ m_PackageAssets:
         - 1.7.0-pre.1
         - 1.7.0-pre.2
         - 1.7.0
+        - 1.7.1
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -3290,6 +3369,7 @@ m_PackageAssets:
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.2
+        - 3.0.1
         compatible:
         - 1.0.0-preview.2
         - 1.0.0-preview.3
@@ -3302,6 +3382,7 @@ m_PackageAssets:
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.2
+        - 3.0.1
         verified: 2.0.2
       dependencies: []
       resolvedDependencies: []
@@ -3357,6 +3438,8 @@ m_PackageAssets:
         - 1.1.0-pre.10
         - 1.1.0-pre.11
         - 1.1.0-pre.41
+        - 1.1.0-pre.69
+        - 1.2.0
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -3365,6 +3448,8 @@ m_PackageAssets:
         - 1.1.0-pre.10
         - 1.1.0-pre.11
         - 1.1.0-pre.41
+        - 1.1.0-pre.69
+        - 1.2.0
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest
