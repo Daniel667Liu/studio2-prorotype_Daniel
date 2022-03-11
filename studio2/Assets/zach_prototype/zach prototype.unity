@@ -3063,7 +3063,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731837546588852280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c2e1cc8e99f74c63b9426e23274a3a1, type: 3}
   m_Name: 
@@ -3124,7 +3124,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 120
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -3157,12 +3157,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731837546588852280}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37c7ef968aad848be9fa6ffed06b5288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 4731837546588852284}
+  sensX: 1.5
+  sensY: 1.5
   swayAmount: 1.5
   swaySpeed: 1
   returnSpeed: 3
@@ -3212,7 +3214,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731837546654848841}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1388fd255df7b408294fd0e4ab9861c8, type: 3}
   m_Name: 
@@ -3274,7 +3276,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731837546654848841}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1aaffcefef0c4941b1dec90a5851469, type: 3}
   m_Name: 

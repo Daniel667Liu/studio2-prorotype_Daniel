@@ -7,10 +7,10 @@ public class TTFCameraController : MonoBehaviour
 
     public Camera mainCamera;
     //public Camera weaponCamera;
-    float sensX = 1f;
-    float sensY = 1f;
-    float baseFov = 90f;
-    float maxFov = 140f;
+    public float sensX = 1f;
+    public float sensY = 1f;
+    float baseFov = 120f;
+    float maxFov = 160f;
     float wallRunTilt = 15f;
 
     float wishTilt = 0;
@@ -71,7 +71,7 @@ public class TTFCameraController : MonoBehaviour
 
         currentLook.x += mouseInput.x;
         //currentLook.y += mouseInput.y;
-        currentLook.y = Mathf.Clamp(currentLook.y += mouseInput.y, -180, 180);
+        currentLook.y = Mathf.Clamp(currentLook.y += mouseInput.y, -90, 90);
 
         transform.localRotation = Quaternion.AngleAxis(-currentLook.y, Vector3.right);
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, curTilt);

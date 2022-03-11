@@ -89,7 +89,7 @@ public class zMovement : MonoBehaviour
     }
     public Mode mode = Mode.Flying;
 
-    TTFCameraController camCon;
+    z camCon;
     Rigidbody rb;
     public Vector3 dir = Vector3.zero;
     void Awake()
