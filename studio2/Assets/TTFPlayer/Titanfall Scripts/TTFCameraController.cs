@@ -71,7 +71,7 @@ public class TTFCameraController : MonoBehaviour
 
         currentLook.x += mouseInput.x;
         //currentLook.y += mouseInput.y;
-        currentLook.y = Mathf.Clamp(currentLook.y += mouseInput.y, -180, 180);
+        currentLook.y = Mathf.Clamp(currentLook.y += mouseInput.y, -90, 90);
 
         transform.localRotation = Quaternion.AngleAxis(-currentLook.y, Vector3.right);
         transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, curTilt);
