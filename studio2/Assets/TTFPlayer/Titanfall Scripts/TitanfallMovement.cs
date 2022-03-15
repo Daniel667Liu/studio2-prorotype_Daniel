@@ -148,6 +148,7 @@ public class TitanfallMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //if (mode != Mode.Flying);
         HandleHeadbob(dir);
         //set collider height lower when crouched
         if (crouched)
@@ -315,7 +316,7 @@ public class TitanfallMovement : MonoBehaviour
             //bHopCoroutine with Leniency is probably a way to add a "forgiveness" period to bunny hopping (surfing)
             //we should DEFINITELY add a leniency period to bunny hopping, current controll is like frame-perfect and hard
             //StartCoroutine(bHopCoroutine(bhopLeniency));
-            gameObject.SendMessage("OnStartWalking");
+            //gameObject.SendMessage("OnStartWalking");
             mode = Mode.Walking;
         }
     }
@@ -371,7 +372,7 @@ public class TitanfallMovement : MonoBehaviour
         //just a lil jump debug and function
         if (jump && canJump)
         {
-            gameObject.SendMessage("OnJump");
+            //gameObject.SendMessage("OnJump");
             Jump();
         }
         //if we're not calling the jump function, we'll continue walking
@@ -420,7 +421,7 @@ public class TitanfallMovement : MonoBehaviour
     {
         if (jump && !crouched)
         {
-            gameObject.SendMessage("OnDoubleJump");
+            //gameObject.SendMessage("OnDoubleJump");
             DoubleJump(wishDir);
         }
 

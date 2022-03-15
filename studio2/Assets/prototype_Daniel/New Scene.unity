@@ -123,18 +123,13 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &761138 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
-  m_PrefabInstance: {fileID: 1732094285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &761148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761138}
+  m_GameObject: {fileID: 1731997677}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
@@ -2051,6 +2046,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4731837547002292350, guid: b8957a7656d798c4499e943d87265383, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731837547002292351, guid: b8957a7656d798c4499e943d87265383, type: 3}
+      propertyPath: mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4731837547002292356, guid: b8957a7656d798c4499e943d87265383, type: 3}
@@ -2096,6 +2095,10 @@ PrefabInstance:
     - target: {fileID: 4731837547002292356, guid: b8957a7656d798c4499e943d87265383, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731837547063439113, guid: b8957a7656d798c4499e943d87265383, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8957a7656d798c4499e943d87265383, type: 3}
@@ -3541,6 +3544,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1731997677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
+  m_PrefabInstance: {fileID: 1732094285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1732094285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3554,7 +3562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 25e3ab2d6992a48f3ab7455baed062e0, type: 3}
       propertyPath: m_RootOrder
