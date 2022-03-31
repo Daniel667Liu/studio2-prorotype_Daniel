@@ -1,0 +1,55 @@
+=== Scene_2 ===
+SOV S4, YEAR UNK, MISSION DAY 56 18:00 SCET
+WEATHER CONDITIONS: LIGHT RAIN, 9 DEGREES CELSIUS
+
+"Well done, Navigator. Place and activate the belay beacon and I will begin charting the surrounding area."
+
+* [PLACE HOLDER: Click here to indicate the belay beacon has been activated.] //this will be replaced with script. 
+
+- ...
+...
+"What does the rain feel like?"
+
+* [Positive Response]
+    //
+* [Negative Response]
+    //You've got sensors, don't you?
+
+- "I do not think my systems interpret it the same as you."
+"It lacks nuance."
+"I know what touches me and where, not the finer points of how."
+    -> Ask_Touch
+
+=== Ask_Touch ===
+"What do you feel like?"
+
++ [Positive Response] "How do you touch me now? I shall cross reference."
+    //Can you feel this? 
+    -> Touching
++ [Negative Response] "I want to know that of which I should not."
+    //You're not supposed to be able to feel like that.
+    -> Ask_Touch //ask again.
+
+=== Ask_Touch_2 ===
+"What do you feel like?"
+
++ [Positive Response] "How do you touch me now? I shall cross reference."
+    //Can you feel this? 
+    -> Touching
++ [Negative Response] "Understood. I shall auto-pilot us back to the ship. Apoligies, Navigator"
+    //You're not supposed to be able to feel like that.
+    -> Continue_to_3 //ask again.
+
+=== Touching ===
+* [Continue] "Lightly...like...a feather?"
+    // Lightly.
+    -> Touching_2
+    
+=== Touching_2 ===
+* [Continue] "No, harder...like the rain...
+//Fade to Black.... //italicize this!!!
+    -> Continue_to_3
+
+=== Continue_to_3 ===
+* [Continue]
+-> Finale

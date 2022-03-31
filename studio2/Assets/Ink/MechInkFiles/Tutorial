@@ -1,0 +1,48 @@
+=== Tutorial ===
+//These may need to be in separate ink files to be accessessed in separate scenes. Structured this way for now until required otherwise. 
+SOV S4, YEAR UNK, MISSION DAY 42 7:00 SCET
+WEATHER CONDITIONS: SUNNY, 18 DEGREES CELSIUS
+
+"Suit secure. Airlock opening."
+
+"Welcome back to the surface of SOV S4, Navigator."
+
+"Today's belay beacon is located approximately 2 klicks away. The terrain is difficult, but you should be able to traverse it with my assistance."
+
+"As per our usual protocol, we will run through the pre-traversal checks."
+
+"Press the W Key to walk forwards, S for backwards, and the A & D keys to move left and right respectively. Press Spacebar to jump."
+
+* [PLACE HOLDER: Click here to indicate those buttons have been pressed.] //this will be replaced with script. 
+
+"Well done, Navigator. Basic Motor Skills tests complete."
+
+- "My hydraulics are capable of running and jumping upon angled planes, reaching speeds of up to 175 klicks/hr."
+
+"Attempt to use the cliff faces to climb to the waypoint I've highlighted on your console. Hold down Shift while moving to run and press the Spacebar twice to double jump."
+
+* [PLACE HOLDER: Click here to indicate those buttons have been pressed/waypoint reached.] //this will be replaced with script. 
+
+//Upon reaching the first waypoint.
+- "Advanced Motorskills tests complete."
+
+"Some areas are currently inaccessible."
+"This planet's flora and terrain are changeable to light and atmospheric conditions. With the last belay beacon we placed, I am able to instantiate these changes."
+"Try affecting the environment by switching between these modes using the G and H keys and proceeding to the next waypoint. "
+
+* [PLACE HOLDER: Click here to indicate those buttons have been pressed/waypoint reached.] //this will be replaced with script.
+
+- "Mode Switching tests complete. Well done, Navigator."
+
+"Follow the ping on your console to the belay beacon location."
+
+* [PLACE HOLDER: Click here to indicate the belay beacon has been reached.] //this will be replaced with script. 
+
+- "Well done, Navigator. Place and activate the belay beacon and I will begin charting the surrounding area."
+
+* [PLACE HOLDER: Click here to indicate the belay beacon has been activated.] //this will be replaced with script. 
+
+- "Surveyance Complete. I shall autopilot us back to the ship when you are ready."
+
+* [Return to ship]
+    -> Scene_1

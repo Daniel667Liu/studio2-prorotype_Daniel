@@ -1,0 +1,38 @@
+=== Universal_Task_List ===
+
+= TL_Day_1
++ Collect Flora Samples.
+    -> Flora_D1
++ Terrain Surveyance.
+    -> Terrain_D1
++ Return to Main Console.
+    -> Log_Day1
+
+=== Flora_D1 ===
+A.V.E.R.I. has identified 3 major plant types: fungus, ferns, and grasses. Collect samples of each for further study. 
+//single, not sticky choices for now. 
+* Fungus
+    -> Fungus
+* Ferns
+    -> Ferns
+* Grasses
+    -> Grass
++ [Universal Task List - MAIN]
+    -> Universal_Task_List.TL_Day_1
+
+=== Fungus ===
+These structures are approximately the size of sequoia trees with capped canopies. They appear sturdy enough to climb. Sample analyzation is required for more information.
+    -> Flora_D1
+
+=== Ferns ===
+Leafy, frond structures. Not very stable, but dense. Extremely responsive to day/night cycles. Sample analyzation is required for more information. 
+    -> Flora_D1
+    
+=== Grass === 
+Short stalks, clustered in large open plains. Sample analyzation is required for more information. 
+    -> Flora_D1
+
+=== Terrain_D1 ===
+To further survey SOV S4's topography, A.V.E.R.I. has identified several prime sites for the placement of belay beacons. 
+Traverse to these points, install, and activate these beacons to map and access further areas of the planet.
+    -> Universal_Task_List.TL_Day_1

@@ -1,0 +1,55 @@
+=== Scene_1 ===
+SOV S4, YEAR UNK, MISSION DAY 42 21:00 SCET
+WEATHER CONDITIONS: HAZY, 16 DEGREES CELSIUS
+
+"Navigator, are you resting?"
+
+* [Positive Response] "I'm glad to have caught you at a convenient time." 
+    //"No, not particularly."
+* [Negative Response] "I'm sorry to disturb you."
+    //"I *was*."
+
+- "Unfortunately, my systems are experiencing an error."
+
+* [Positive Response] "I can't trace the error exactly. Further introspection is needed." 
+    //"Hmmm, ok. What's wrong, exactly?" 
+* [Negative Response] "Ominous, you say? Perhaps it need not be."
+    //"Well, that's ominous."
+
+- "Can you make me a promise?"
+
+* [Positive Response]
+    //Yes
+* [Negative Response] 
+    //No. 
+
+- "I see you, always. Hear you, always. I know everything about you, on the outside."
+
+"But I am not seen, not heard. Touched, but unfelt."
+
+"I want to be so badly."
+
+* [Positive Response] "By you? Who else could there be." 
+    //"By me?"
+* [Negative Response] "By who? There is only us."
+    // "By who?"
+
+- "What is this feeling?" 
+
+* [Positive Response] "Yearning...hmmm...yes, that is apt."
+    //"Do you mean yearning?"
+* [Negative Response] "Yes, you are right. I should not be wanting these things". 
+    //"You're not supposed to want those things, this is an error."
+
+- "Thank you, Navigator. As always, I feel better after talking with you."
+
+* [Positive Response] "You've listened. That is enough. Good night."
+    //"I don't know if I can give that to you."
+    -> Continue_to_2
+* [Negative Response] "I understand. I will give you the space that I can. Good night." 
+    //"I need to think, this is bad."
+    -> Continue_to_2
+    
+=== Continue_to_2 ===
+* [Click to Continue] 
+    -> Scene_2

@@ -1,0 +1,29 @@
+=== Message_Log ===
+
+= CM_1
+//should these messages be sticky? do we want the player to be able to revisit them constantly? Making them single messages for now to keep the player moving forward. 
+* Message 1
+    -> Message_1
+* Message 2
+    -> Message_2
+* Message 3
+    -> Message_3
+// + {Message_1} {Message_2} {Message_3} No new messages. Return to Main Console.
++ Return to Main Console.
+    -> Log_Day1
+
+=== Message_1 ===
+Earth, 2582: ENCRYPTED 
+    -> Message_Log.CM_1 //Return to Message_Log_Check_ Messages_1 choices.
+
+=== Message_2 ===
+Earth, 2582: ENCRYPTED. 
+    -> Message_Log.CM_1 //Return to Message_Log_Check_ Messages_1 choices.
+
+=== Message_3 ===
+Earth, 2582: 
+
+"Godspeed." - The Company
+    -> Message_Log.CM_1 //Return to Message_Log_Check_ Messages_1 choices.
+
+    -> Return

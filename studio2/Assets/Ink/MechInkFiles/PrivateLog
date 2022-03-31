@@ -1,0 +1,32 @@
+=== Private_Log ===
+
+= PL_1
+//made single choices for now, may need to be sticky in practice
+* Entry 1: Mission Day 0
+    -> Entry_1
+* Entry 2: Mission Day 23
+    -> Entry_2
+* Entry 3: Mission Day 36
+    -> Entry_3
++ Return to Main Console
+    -> Log_Day1
+    
+=== Entry_1 ===
+I wasn't supposed to go this far. I'm not even sure this is the same planet.
+
+Where am I? When am I? Where is everyone? A.V.E.R.I. won't give me a straight answer. It's just us out here. 
+All alone. 
+    -> Private_Log.PL_1
+
+=== Entry_2 ===
+Ecological rehabilitation and topography surveyance is going about as well as can be expected. I wish I could get in contact with the Company. 
+That last storm really did a number on the ship, it's in need of some repairs. 
+On the bright side, I'm getting more used to this planet's odd gravity, the legs...to A.V.E.R.I. 
+I went through the presaved entertainment content pretty quickly, but A.V.E.R.I. has apparently been equipped with improvisational code. 
+I've been talking to them alot. 
+    -> Private_Log.PL_1
+    
+=== Entry_3 ===
+Saw something in the distance...I can't tell if it's a landscape formation, and there isn't an active belay beacon close enough for A.V.E.R.I. to analyze. It almost looked like...buildings? 
+Want/need to investigate further. 
+    -> Private_Log.PL_1
