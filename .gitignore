@@ -62,4 +62,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 studio2/Library
-Studio2/Logs
+studio2/Logs
+studio2/obj
