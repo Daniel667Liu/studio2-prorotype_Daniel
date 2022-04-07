@@ -1,0 +1,613 @@
+<?xml version="1.0" ?><doc>
+    <assembly>
+        <name>PathPainter</name>
+    </assembly>
+    <members>
+        <member name="T:Haven.API.PathPainter2.Painter">
+            <summary>
+            Path Painter Painter API
+            </summary>
+            <summary>
+            Path Painter Painter API
+            </summary>
+        </member>
+        <member name="T:Haven.API.PathPainter2.Painter.EmbankmentCurve">
+            <summary>
+            Embankment Curve that determines how the path blends into the environment.
+            </summary>
+        </member>
+        <member name="T:Haven.API.PathPainter2.Painter.Noise">
+            <summary>
+            Noise types.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.size">
+            <summary>
+            Width of the path without its embankment.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.embankmentSize">
+            <summary>
+            Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.shaping">
+            <summary>
+            Terrain shaping on/off.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.elevation">
+            <summary>
+            Relative elevation of the path. Negative values can be used to carve into the terrain.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.slopeLimit">
+            <summary>
+            [0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+            0f degrees results in a path that's in level, while 90f degrees inherently means no limit.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.embankmentCurve">
+            <summary>
+            Embankment Curve that determines how the path blends into the environment.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.evenRamp">
+            <summary>
+            [0-1 Normalized]; 
+              0: follow terrain; 
+              1: the ramp slope will be even from start to end.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.textureStrength">
+            <summary>
+            [0-1 Normalized] Strength of the texture painting.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.texture">
+            <summary>
+            TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.embankmentTexture">
+            <summary>
+            TerrainLayer to be used for the embankment. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.smartTexturePaint">
+            <summary>
+            Disable if Embankment painting is desired over areas with Path surface texture.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.clearGrass">
+            <summary>
+            Clear/thin Terrain Details (grass, flowers, etc.) when drawing paths according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.grassClearingDistance">
+            <summary>
+            [Value 0.01-1] Terrain Details (grass, flowers, etc.) clearing distance ratio (ratio of one side-embankment width). Grass will be cleared up to this distance.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.grassThinningDistance">
+            <summary>
+            [0.01-1 Normalized] Terrain Details (grass, flowers, etc.) thinning distance ratio (ratio of one side-embankment width).
+            Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.grassClearingNoise">
+            <summary>
+            The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.) Thinning.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.clearTree">
+            <summary>
+            Clear trees when drawing paths according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.Painter.treeClearingDistance">
+            <summary>
+            [0.01-1 Normalized] Tree clearing distance ratio (ratio of one side-embankment width). Trees will be cleared up to this distance.
+            </summary>
+        </member>
+        <member name="F:Haven.API.PathPainter2.Painter.smoothPath">
+            <summary>
+            Paint smooth paths when enabled.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.#ctor">
+            <summary>
+            Initialise a painter.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.#ctor(System.Action{UnityEngine.Terrain})">
+            <summary>
+            Initialise a painter with a record undo action. This action will be called to record undo on terrains.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Init(System.Action{UnityEngine.Terrain})">
+            <summary>
+            Init the painter with record undo action
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.SetDefaults">
+            <summary>
+            Reset the Default options/settings.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint(System.Collections.Generic.List{UnityEngine.Vector3},System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)">
+            <summary>
+            Change all the <see cref="T:Haven.API.PathPainter2.Painter"/> settings and Paint a Path with Y positions relative to the terrain 
+            surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            </summary>
+            <param name="points">Worlds Space points of the path to be painted. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain 
+            distance)</param>
+            <param name="size">Width of the path without its embankment.</param>
+            <param name="embankmentSize">Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.</param>
+            <param name="embankmentCurve">Embankment Curve that determines how the path blends into the environment.</param>
+            <param name="shaping">Terrain shaping on/off.</param>
+            <param name="slopeLimit">[0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+             0f degrees results in a path that's in level, while 90f degrees inherently means no limit.</param>
+            <param name="elevation">Relative elevation of the path. Negative values can be used to carve into the terrain.</param>
+            <param name="evenRamp">[0-1 Normalized]; 
+             0: follow terrain; 
+             1: the ramp slope will be even from start to end.</param>
+            <param name="textureStrength">[Value 0-1] Strength of the texture painting.</param>
+            <param name="texture">TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles 
+            by their index: layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="embankmentTexture">TerrainLayer to be used for the embankment. Tip: You can get layers of terrain 
+            tiles by their index: layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="smartTexturePaint">Disable if Embankment painting is desired over areas with Path surface texture.</param>
+            <param name="clearGrass">Clear/thin Terrain Details (grass, flowers, etc.) according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.</param>
+            <param name="grassClearingDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Clearing distance ratio (ratio of one side-embankment width). Grass will be cleared up to this distance.</param>
+            <param name="grassThinningDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Thinning distance ratio (ratio of one side-embankment width). Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.</param>
+            <param name="grassClearingNoise">The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.) Thinning.</param>
+            <param name="clearTree">Clear trees according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.</param>
+            <param name="treeClearingDistance">[Value 0.01-1] Tree Clearing distance ratio (ratio of one side-embankment width). Trees will be cleared up to this distance.</param>
+            <param name="smoothPath">Paint smooth paths when enabled.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint(UnityEngine.Vector3[],System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)">
+            <summary>
+            Change all the <see cref="T:Haven.API.PathPainter2.Painter"/> settings and Paint a Path with Y positions relative to the terrain 
+            surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            </summary>
+            <param name="points">Worlds Space points of the path to be painted. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain 
+            distance)</param>
+            <param name="size">Width of the path without its embankment.</param>
+            <param name="embankmentSize">Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.</param>
+            <param name="embankmentCurve">Embankment Curve that determines how the path blends into the environment.</param>
+            <param name="shaping">Terrain shaping on/off.</param>
+            <param name="slopeLimit">[0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+             0f degrees results in a path that's in level, while 90f degrees inherently means no limit.</param>
+            <param name="elevation">Relative elevation of the path. Negative values can be used to carve into the terrain.</param>
+            <param name="evenRamp">[0-1 Normalized]; 
+             0: follow terrain; 
+             1: the ramp slope will be even from start to end.</param>
+            <param name="textureStrength">[Value 0-1] Strength of the texture painting.</param>
+            <param name="texture">TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles 
+            by their index: layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="embankmentTexture">TerrainLayer to be used for the embankment. Tip: You can get layers of terrain 
+            tiles by their index: layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="smartTexturePaint">Disable if Embankment painting is desired over areas with Path surface texture.</param>
+            <param name="clearGrass">Clear/thin Terrain Details (grass, flowers, etc.) according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.</param>
+            <param name="grassClearingDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Clearing distance ratio (ratio of one side-embankment width). Grass will be cleared up to this distance.</param>
+            <param name="grassThinningDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Thinning distance ratio (ratio of one side-embankment width). Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.</param>
+            <param name="grassClearingNoise">The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.) Thinning.</param>
+            <param name="clearTree">Clear trees according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.</param>
+            <param name="treeClearingDistance">[Value 0.01-1] Tree Clearing distance ratio (ratio of one side-embankment width). Trees will be cleared up to this distance.</param>
+            <param name="smoothPath">Paint smooth paths when enabled.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint(System.Collections.Generic.List{UnityEngine.Vector3},Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Paint a Path using the current <see cref="T:Haven.API.PathPainter2.Painter"/> settings while optionally changing any settings as desired.
+            Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods to pass in <paramref name="options"/>. Path Y positions
+            will be relative to the terrain surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            </summary>
+            <param name="points">Worlds Space points of the path to be painted. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain distance)</param>
+            <param name="options">An optional list of <see cref="!:PathPainterAPI.PaintOption"/> that specify the painting properties.
+            Any values passed in here will change the presets. Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint(UnityEngine.Vector3[],Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Paint a Path using the current <see cref="T:Haven.API.PathPainter2.Painter"/> settings while optionally changing any settings as desired.
+            Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods to pass in <paramref name="options"/>. Path Y positions
+            will be relative to the terrain surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            </summary>
+            <param name="points">Worlds Space points of the path to be painted. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain distance)</param>
+            <param name="options">An optional list of <see cref="!:PathPainterAPI.PaintOption"/> that specify the painting properties.
+            Any values passed in here will change the presets. Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint(System.Collections.Generic.List{UnityEngine.Vector3})">
+            <summary>
+            Uses the current <see cref="T:Haven.API.PathPainter2.Painter"/> settings and paint a Path with Y positions relative to the terrain 
+            surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            </summary>
+            <param name="points">Worlds Space points of the path to be painted. Note: Y values are ignored.
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain distance)</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint(UnityEngine.Vector3[])">
+            <summary>
+            Uses the current <see cref="T:Haven.API.PathPainter2.Painter"/> settings and paint a Path with Y positions relative to the terrain surface according
+            to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            </summary>
+            <param name="points">Worlds Space points of the path to be painted. Note: Y values are ignored.
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain distance)</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint3D(System.Collections.Generic.List{UnityEngine.Vector3},System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)">
+            <summary>
+            Change all the relevant <see cref="T:Haven.API.PathPainter2.Painter"/> settings and paint a Path with explicit Y positions (i.e. the path surface
+            will follow the <paramref name="points"/> in 3D).
+            </summary>
+            <param name="points">Worlds Space points for the path to follow.</param>
+            <param name="size">Width of the path without its embankment.</param>
+            <param name="embankmentSize">Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.</param>
+            <param name="embankmentCurve">Embankment Curve that determines how the path blends into the environment.</param>
+            <param name="shaping">Terrain shaping on/off.</param>
+            <param name="slopeLimit">[0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+             0f degrees results in a path that's in level, while 90f degrees inherently means no limit.</param>
+            <param name="elevation">Path elevation relative to the <paramref name="points"/> provided.</param>
+            <param name="textureStrength">[Value 0-1] Strength of the texture painting.</param>
+            <param name="texture">TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="embankmentTexture">TerrainLayer to be used for the embankment. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="smartTexturePaint">Disable if Embankment painting is desired over areas with Path surface texture.</param>
+            <param name="clearGrass">Clear/thin Terrain Details (grass, flowers, etc.) according to the settings:
+            <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.</param>
+            <param name="grassClearingDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Clearing distance ratio
+            (ratio of one side-embankment width). Grass will be cleared up to this distance.</param>
+            <param name="grassThinningDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Thinning distance ratio
+            (ratio of one side-embankment width). Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.</param>
+            <param name="grassClearingNoise">The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.)
+            Thinning.</param>
+            <param name="clearTree">Clear trees according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.</param>
+            <param name="treeClearingDistance">[Value 0.01-1] Tree Clearing distance ratio (ratio of one side-embankment width).
+            Trees will be cleared up to this distance.</param>
+            <param name="smoothPath">Paint smooth paths when enabled.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint3D(UnityEngine.Vector3[],System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)">
+            <summary>
+            Change all the relevant <see cref="T:Haven.API.PathPainter2.Painter"/> settings and paint a Path with explicit Y positions (i.e. the path surface
+            will follow the <paramref name="points"/> in 3D).
+            </summary>
+            <param name="points">Worlds Space points for the path to follow.</param>
+            <param name="size">Width of the path without its embankment.</param>
+            <param name="embankmentSize">Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.</param>
+            <param name="embankmentCurve">Embankment Curve that determines how the path blends into the environment.</param>
+            <param name="shaping">Terrain shaping on/off.</param>
+            <param name="slopeLimit">[0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+             0f degrees results in a path that's in level, while 90f degrees inherently means no limit.</param>
+            <param name="elevation">Path elevation relative to the <paramref name="points"/> provided.</param>
+            <param name="textureStrength">[Value 0-1] Strength of the texture painting.</param>
+            <param name="texture">TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="embankmentTexture">TerrainLayer to be used for the embankment. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="smartTexturePaint">Disable if Embankment painting is desired over areas with Path surface texture.</param>
+            <param name="clearGrass">Clear/thin Terrain Details (grass, flowers, etc.) according to the settings:
+            <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.</param>
+            <param name="grassClearingDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Clearing distance ratio
+            (ratio of one side-embankment width). Grass will be cleared up to this distance.</param>
+            <param name="grassThinningDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Thinning distance ratio
+            (ratio of one side-embankment width). Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.</param>
+            <param name="grassClearingNoise">The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.)
+            Thinning.</param>
+            <param name="clearTree">Clear trees according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.</param>
+            <param name="treeClearingDistance">[Value 0.01-1] Tree Clearing distance ratio (ratio of one side-embankment width).
+            Trees will be cleared up to this distance.</param>
+            <param name="smoothPath">Paint smooth paths when enabled.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint3D(System.Collections.Generic.List{UnityEngine.Vector3},Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Paint a Path with explicit Y positions (i.e. the path surface will follow the <paramref name="points"/> in 3D) using the
+            current <see cref="T:Haven.API.PathPainter2.Painter"/> settings while optionally changing any settings as desired.
+            Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods to pass in <paramref name="options"/>.
+            </summary>
+            <param name="points">Worlds Space points for the path to follow.</param>
+            <param name="options">An optional list of <see cref="!:PathPainterAPI.PaintOption"/> that specify the painting properties.
+            Any values passed in here will change the presets. Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint3D(UnityEngine.Vector3[],Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Paint a Path with explicit Y positions (i.e. the path surface will follow the <paramref name="points"/> in 3D) using the
+            current <see cref="T:Haven.API.PathPainter2.Painter"/> settings while optionally changing any settings as desired.
+            Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods to pass in <paramref name="options"/>.
+            </summary>
+            <param name="points">Worlds Space points for the path to follow.</param>
+            <param name="options">An optional list of <see cref="!:PathPainterAPI.PaintOption"/> that specify the painting properties.
+            Any values passed in here will change the presets. Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint3D(System.Collections.Generic.List{UnityEngine.Vector3})">
+            <summary>
+            Paint a Path with explicit Y positions (i.e. the path surface will follow the <paramref name="points"/> in 3D) using the
+            current <see cref="T:Haven.API.PathPainter2.Painter"/> settings.
+            </summary>
+            <param name="points">Worlds Space points for the path to follow.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Paint3D(UnityEngine.Vector3[])">
+            <summary>
+            Paint a Path with explicit Y positions (i.e. the path surface will follow the <paramref name="points"/> in 3D) using the
+            current <see cref="T:Haven.API.PathPainter2.Painter"/> settings.
+            </summary>
+            <param name="points">Worlds Space points for the path to follow.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.StartBulkPaint(UnityEngine.Vector3)">
+            <summary>
+            Use bulk painting to avoid prep and Unity's terrain sync overheads. Usage: <seealso cref="M:Haven.API.PathPainter2.Painter.StartBulkPaint(UnityEngine.Vector3)"/>;
+            BulkPaint(); ... BulkPaint3D(); <seealso cref="M:Haven.API.PathPainter2.Painter.EndBulkPaint"/>;
+            </summary>
+            <param name="targetTerrainsAt">World Space position used to select a group of terrains to painted on 
+            (tile at this position and surrounding tiles that are compatible with it). 
+            Any point can be usedn if it's above or below the group of terrains.</param>
+            <returns>Returns false if unable to lock on the target terrain tiles or if they are missing terrain 
+            elements.</returns>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.EndBulkPaint">
+            <summary>
+            Use bulk painting to avoid prep and Unity's terrain sync overheads. Usage: <seealso cref="M:Haven.API.PathPainter2.Painter.StartBulkPaint(UnityEngine.Vector3)"/>;
+            BulkPaint3D(); ... BulkPaint(); <seealso cref="M:Haven.API.PathPainter2.Painter.EndBulkPaint"/>;
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)">
+            <summary>
+            Change all the <see cref="T:Haven.API.PathPainter2.Painter"/> settings and start a New Line with Y positions relative to the terrain 
+            surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point of where the line starts. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain 
+            distance)</param>
+            <param name="size">Width of the path without its embankment.</param>
+            <param name="embankmentSize">Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.</param>
+            <param name="embankmentCurve">Embankment Curve that determines how the path blends into the environment.</param>
+            <param name="shaping">Terrain shaping on/off.</param>
+            <param name="slopeLimit">[0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+             0f degrees results in a path that's in level, while 90f degrees inherently means no limit.</param>
+            <param name="elevation">Relative elevation of the path. Negative values can be used to carve into the terrain.</param>
+            <param name="evenRamp">[0-1 Normalized]; 
+             0: follow terrain; 
+             1: the ramp slope will be even from start to end.</param>
+            <param name="textureStrength">[Value 0-1] Strength of the texture painting.</param>
+            <param name="texture">TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles 
+            by their index: layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="embankmentTexture">TerrainLayer to be used for the embankment. Tip: You can get layers of terrain 
+            tiles by their index: layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="smartTexturePaint">Disable if Embankment painting is desired over areas with Path surface texture.</param>
+            <param name="clearGrass">Clear/thin Terrain Details (grass, flowers, etc.) according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.</param>
+            <param name="grassClearingDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Clearing distance ratio (ratio of one side-embankment width). Grass will be cleared up to this distance.</param>
+            <param name="grassThinningDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Thinning distance ratio (ratio of one side-embankment width). Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.</param>
+            <param name="grassClearingNoise">The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.) Thinning.</param>
+            <param name="clearTree">Clear trees according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.</param>
+            <param name="treeClearingDistance">[Value 0.01-1] Tree Clearing distance ratio (ratio of one side-embankment width). Trees will be cleared up to this distance.</param>
+            <param name="smoothPath">Paint smooth paths when enabled.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Start a New Line using the current <see cref="T:Haven.API.PathPainter2.Painter"/> settings while optionally changing any settings as desired.
+            Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods to pass in <paramref name="options"/>. Path Y positions
+            will be relative to the terrain surface according to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point of where the line starts. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain distance)</param>
+            <param name="options">An optional list of <see cref="!:PathPainterAPI.PaintOption"/> that specify the painting properties.
+            Any values passed in here will change the presets. Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3)">
+            <summary>
+            Uses the current <see cref="T:Haven.API.PathPainter2.Painter"/> settings and start a New Line with Y positions relative to the terrain surface according
+            to the <see cref="P:Haven.API.PathPainter2.Painter.evenRamp"/> and <see cref="F:Haven.API.PathPainter2.Painter.elevation"/> settings.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point of where the line starts. Note: Y values are ignored. 
+            (similar to how mouse movement could be used by recording a point every time the mouse moves a certain distance)</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)">
+            <summary>
+            Change all the relevant <see cref="T:Haven.API.PathPainter2.Painter"/> settings and start a New Line with explicit Y positions (i.e. the path surface
+            will follow the <paramref name="points"/> in 3D).
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point of where the line starts. The path will stick to this vertically as well.</param>
+            <param name="size">Width of the path without its embankment.</param>
+            <param name="embankmentSize">Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.</param>
+            <param name="embankmentCurve">Embankment Curve that determines how the path blends into the environment.</param>
+            <param name="shaping">Terrain shaping on/off.</param>
+            <param name="slopeLimit">[0-90] Used by the Auto Ramp feature. Slope limit of the path in degrees.
+             0f degrees results in a path that's in level, while 90f degrees inherently means no limit.</param>
+            <param name="elevation">Path elevation relative to the <paramref name="points"/> provided.</param>
+            <param name="textureStrength">[Value 0-1] Strength of the texture painting.</param>
+            <param name="texture">TerrainLayer to be used for the path surface. Texturing off if null. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="embankmentTexture">TerrainLayer to be used for the embankment. Tip: You can get layers of terrain tiles by their index: 
+            layer = tile.terrainData.terrainLayers[index];</param>
+            <param name="smartTexturePaint">Disable if Embankment painting is desired over areas with Path surface texture.</param>
+            <param name="clearGrass">Clear/thin Terrain Details (grass, flowers, etc.) according to the settings:
+            <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/>, <see cref="P:Haven.API.PathPainter2.Painter.grassThinningDistance"/>, <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/>.</param>
+            <param name="grassClearingDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Clearing distance ratio
+            (ratio of one side-embankment width). Grass will be cleared up to this distance.</param>
+            <param name="grassThinningDistance">[Value 0.01-1] Terrain Details (grass, flowers, etc.) Thinning distance ratio
+            (ratio of one side-embankment width). Grass will be thinned with <see cref="F:Haven.API.PathPainter2.Painter.grassClearingNoise"/> applied from the <see cref="P:Haven.API.PathPainter2.Painter.grassClearingDistance"/> up to this distance.</param>
+            <param name="grassClearingNoise">The type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details (grass, flowers, etc.)
+            Thinning.</param>
+            <param name="clearTree">Clear trees according to the settings: <see cref="P:Haven.API.PathPainter2.Painter.treeClearingDistance"/>.</param>
+            <param name="treeClearingDistance">[Value 0.01-1] Tree Clearing distance ratio (ratio of one side-embankment width).
+            Trees will be cleared up to this distance.</param>
+            <param name="smoothPath">Paint smooth paths when enabled.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Start a New Line with explicit Y positions (i.e. the path surface will follow the <paramref name="point"/> in 3D) using the
+            current <see cref="T:Haven.API.PathPainter2.Painter"/> settings while optionally changing any settings as desired.
+            Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods to pass in <paramref name="options"/>.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point of where the line starts. The path will stick to this vertically as well.</param>
+            <param name="options">An optional list of <see cref="!:PathPainterAPI.PaintOption"/> that specify the painting properties.
+            Any values passed in here will change the presets. Use <seealso cref="!:PathPainterAPI.PaintOption"/> static methods.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3)">
+            <summary>
+            Start a New Line with explicit Y positions (i.e. the path surface will follow the <paramref name="point"/> in 3D) using the
+            current <see cref="T:Haven.API.PathPainter2.Painter"/> settings.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point of where the line starts. The path will stick to this vertically as well.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.AddToLine(UnityEngine.Vector3)">
+            <summary>
+            Adds Points to a line.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+            <param name="point">Worlds Space point to add to the line.</param>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.CompleteLine">
+            <summary>
+            Complete a Line.
+            Usage: Start a new line with <see cref="M:Haven.API.PathPainter2.Painter.NewLine(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>/<see cref="M:Haven.API.PathPainter2.Painter.NewLine3D(UnityEngine.Vector3,System.Single,System.Single,Haven.API.PathPainter2.Painter.EmbankmentCurve,System.Boolean,System.Single,System.Single,System.Single,UnityEngine.TerrainLayer,UnityEngine.TerrainLayer,System.Boolean,System.Boolean,System.Single,System.Single,Haven.API.PathPainter2.Painter.Noise,System.Boolean,System.Single,System.Boolean)"/>, add to it with <see cref="!:AddToLine()"/> and complete it with <see cref="M:Haven.API.PathPainter2.Painter.CompleteLine"/>.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Size(System.Single)">
+            <summary>
+            Option passed to the Path Painter API to set the 
+            Width of the path without its embankment.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.EmbankmentSize(System.Single)">
+            <summary>
+            Option passed to the Path Painter API to set the 
+            Width of the whole path including the embankment. Cannot be less than the <see cref="F:Haven.API.PathPainter2.Painter.size"/>.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.EmbankCurve(Haven.API.PathPainter2.Painter.EmbankmentCurve)">
+            <summary>
+            Option passed to the Path Painter API to set the 
+            Embankment Curve that determines how the path blends into the environment.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Elevation(System.Single)">
+            <summary>
+            Option passed to the Path Painter API to set the 
+            Relative elevation of the path. Negative values can be used to carve into the terrain.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Shaping(System.Boolean)">
+            <summary>
+            Option passed to the Path Painter API to set 
+            Terrain shaping on/off.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.SlopeLimit(System.Single)">
+            <summary>
+            [0-90] Option passed to the Path Painter API to set the slope limit.
+            It's used by the Auto Ramp feature. Slope limit of the path in degrees.
+            0f degrees results in a path that's in level, while 90f degrees inherently means no limit.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.EvenRamp(System.Single)">
+            <summary>
+            [Value 0-1] Option passed to the Path Painter API to set the EvenRamp value.
+             0: follow terrain;
+             1: the ramp slope will be even from start to end.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.TextureStrength(System.Single)">
+            <summary>
+            [Value 0-1] Option passed to the Path Painter API to set the Strength of the texture painting.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.Texture(UnityEngine.TerrainLayer)">
+            <summary>
+            Option passed to the Path Painter API to set the TerrainLayer to be used for the path surface. Texturing off if null. Tip: 
+            You can get layers of terrain tiles by their index: layer = tile.terrainData.terrainLayers[index];
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.EmbankmentTexture(UnityEngine.TerrainLayer)">
+            <summary>
+            Option passed to the Path Painter API to set the TerrainLayer to be used for the embankment. Tip: 
+            You can get layers of terrain tiles by their index: layer = tile.terrainData.terrainLayers[index];
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.SmartTexturePaint(System.Boolean)">
+            <summary>
+            Option passed to the Path Painter API to set Smart Texture Paint. 
+            Disable if Embankment painting is desired over areas with Path surface texture.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.ClearGrass(System.Boolean)">
+            <summary>
+            Option passed to the Path Painter API to enable/disable Clearing/thinning of Terrain Details (grass, flowers, etc.) when 
+            drawing paths according to the settings: <see cref="M:Haven.API.PathPainter2.Painter.GrassClearingDistance(System.Single)"/>, <see cref="M:Haven.API.PathPainter2.Painter.GrassThinningDistance(System.Single)"/>, 
+            <see cref="M:Haven.API.PathPainter2.Painter.GrassClearingNoise(Haven.API.PathPainter2.Painter.Noise)"/>.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.GrassClearingDistance(System.Single)">
+            <summary>
+            [Value 0.01-1] Option passed to the Path Painter API to set the Terrain Details (grass, flowers, etc.) clearing distance 
+            ratio (ratio of one side-embankment width). Grass will be cleared up to this distance.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.GrassThinningDistance(System.Single)">
+            <summary>
+            [Value 0.01-1] Option passed to the Path Painter API to set the Terrain Details (grass, flowers, etc.) thinning distance
+            ratio (ratio of one side-embankment width). Grass will be thinned with <see cref="M:Haven.API.PathPainter2.Painter.GrassClearingNoise(Haven.API.PathPainter2.Painter.Noise)"/> applied from the
+            <see cref="M:Haven.API.PathPainter2.Painter.GrassClearingDistance(System.Single)"/> up to this distance.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.GrassClearingNoise(Haven.API.PathPainter2.Painter.Noise)">
+            <summary>
+            Option passed to the Path Painter API to set the type of <see cref="T:Haven.API.PathPainter2.Painter.Noise"/> applied to Terrain Details
+            (grass, flowers, etc.) Thinning.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.ClearTree(System.Boolean)">
+            <summary>
+            Option passed to the Path Painter API to enable/disable Tree Clearing when drawing paths according to the settings:
+            <see cref="M:Haven.API.PathPainter2.Painter.TreeClearingDistance(System.Single)"/>.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.TreeClearingDistance(System.Single)">
+            <summary>
+            [Value 0.01-1] Option passed to the Path Painter API to set the tee clearing distance ratio (ratio of one side-embankment
+            width). Trees will be cleared up to this distance.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.Painter.SmoothPath(System.Boolean)">
+            <summary>
+            Option passed to the Path Painter API to enable/disable path smoothing.
+            </summary>
+        </member>
+        <member name="T:Haven.API.PathPainter2.PaintOption">
+            <summary>
+            Class internally used to pass Paint options to Path Painter API functions. You don't use these directly, but construct them 
+            with the control functions in the PathPainterAPI class.
+            </summary>
+        </member>
+        <member name="T:Haven.API.PathPainter2.PaintOption.PaintOptionType">
+            <summary>
+            The type of Paint Options.
+            </summary>
+        </member>
+        <member name="P:Haven.API.PathPainter2.PaintOption.Type">
+            <summary>
+            The type of the Paint Option.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.PaintOption.#ctor(Haven.API.PathPainter2.PaintOption.PaintOptionType,System.Object)">
+            <summary>
+            New option.
+            </summary>
+        </member>
+        <member name="M:Haven.API.PathPainter2.PaintOption.ApplyOptions(Haven.API.PathPainter2.Painter,Haven.API.PathPainter2.PaintOption[])">
+            <summary>
+            Applies the options to the API
+            </summary>
+        </member>
+    </members>
+</doc>
