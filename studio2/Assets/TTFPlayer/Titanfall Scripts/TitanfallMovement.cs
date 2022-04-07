@@ -315,7 +315,7 @@ public class TitanfallMovement : MonoBehaviour
             //bHopCoroutine with Leniency is probably a way to add a "forgiveness" period to bunny hopping (surfing)
             //we should DEFINITELY add a leniency period to bunny hopping, current controll is like frame-perfect and hard
             //StartCoroutine(bHopCoroutine(bhopLeniency));
-            gameObject.SendMessage("OnStartWalking");
+            //gameObject.SendMessage("OnStartWalking");
             mode = Mode.Walking;
         }
     }
