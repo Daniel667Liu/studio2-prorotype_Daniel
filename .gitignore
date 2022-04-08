@@ -63,3 +63,8 @@ crashlytics-build.properties
 
 studio2/Library
 studio2/Logs
+studio2/obj
+~/Library
+~/Logs
+~/obj
+
