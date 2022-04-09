@@ -61,7 +61,7 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Name
-      value: A.V.E.R.I.
+      value: NPC
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
